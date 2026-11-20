@@ -20,6 +20,8 @@
 /* Transcript'ler bu repoda şifreli durur (t/<kimlik>.bin, AES-256-GCM, gzip).
    Anahtar linkin # sonrasındadır; tarayıcı bunu hiçbir sunucuya göndermez.
    Çözme işlemi tamamen bu sayfada, okuyanın tarayıcısında yapılır. */
+// Aynı sekmede başka bir transcript linki açılırsa (# değişir, sayfa yenilenmez) yeniden yükle
+addEventListener('hashchange', () => location.reload());
 (async () => {
   const durum = document.getElementById('durum');
   const yaz = m => { durum.textContent = m; };
